@@ -1,0 +1,7 @@
+# add files to be ignored while building image
+Dockerfile
+README.md
+__pycache__
+*.pyc
+*.pyo
+*.pyd
