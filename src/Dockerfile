@@ -20,7 +20,7 @@ COPY requirements.txt /usr/app/
 RUN pip install -r requirements.txt
 
 # COPY all files except those defined in .dockerignore
-COPY . /usr/app/
+COPY . /usr/app/ 
 
 # Smoke test to verify that the speedtest binary can be started in container
 # CMD [ "speedtest",  "--accept-license", "--accept-gdpr"]

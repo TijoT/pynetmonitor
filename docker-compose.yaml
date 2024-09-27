@@ -15,12 +15,24 @@ services:
       # relative path of env variables
       - ./config/influxdb.env 
   grafana:
-    image: grafana/grafana
+    image: grafana/grafana:9.0.4
     ports:
       - '3000:3000'
     volumes:
       - 'grafana_storage:/var/lib/grafana'
     env_file:
       # relative path of env variables
-      - ./config/grafana.env 
+      - ./config/grafana.env  
+    depends_on:
+      influxdb2:
+        condition: service_started
+  monitor:
+    build: 
+      context: ./src
+      dockerfile: ./Dockerfile
+    env_file:
+      # relative path of env variables
+      - ./config/influxdb.env   
+      - ./config/monitor.env   
+
 

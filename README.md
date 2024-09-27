@@ -19,7 +19,12 @@ A Raspberry Pi. Used Raspberry Pi 4B for development.
 ## Development environment 
 Setup development environment by running Influxdb and Grafana in docker containers
 `docker compose -f docker-compose-dev.yaml up -d`
-The login details are defined in the ./config/*.env files.
+The environment variables are defined in the ./config/*.env files.
+
+## Continuous internet speed monitoring 
+Run docker compose 
+`docker compose -f docker-compose.yaml up -d`
+The environment variables are defined in the ./config/*.env files.
 
 # Acknowledgments
 Inspiration 

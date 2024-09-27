@@ -9,4 +9,4 @@
 
 # Analyze stdout from a detached container
 `docker run -d TAG_NAME`
-`docker logs IMAGE_ID`
+`docker logs CONTAINER_ID`
