@@ -40,9 +40,8 @@ client = InfluxDBClient(
 write_api = client.write_api(write_options=SYNCHRONOUS)
 # ************* INFLUXDB CONFIG **************** #
 
-count = 1
-while count < 6:
-    count += 1
+
+while True:
     response = subprocess.Popen(
         "/usr/bin/speedtest --accept-license --accept-gdpr", shell=True, stdout=subprocess.PIPE).stdout.read()
 
@@ -53,6 +52,13 @@ while count < 6:
     upload_search = re.search(r"Upload:\s+(.*?)\s", decoded, re.MULTILINE)
     jitter_search = re.search(r"Latency:.*?jitter:\s+(.*?)ms", decoded, re.MULTILINE)
 
+    if latency_search is None \
+        or download_search is None \
+            or upload_search is None \
+                or jitter_search is None:
+        print(f'Reg ex pattern not found in :\n{decoded}')
+        logger.error(f'Reg ex pattern not found in :\n{decoded}')
+        
     latency = latency_search.group(1)
     download = download_search.group(1)
     upload = upload_search.group(1)

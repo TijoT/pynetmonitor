@@ -5,7 +5,8 @@ FROM python:3.12.6-slim-bookworm
 WORKDIR /usr/app
 
 # install apt packages required for speedtest
-RUN apt-get update \
+RUN export DEBIAN_FRONTEND=noninteractive \
+    && apt-get update \
     && apt-get upgrade -y --no-install-recommends \
     && apt install -y --no-install-recommends apt-transport-https gnupg1 dirmngr lsb-release curl gpg \ 
     && curl -L https://packagecloud.io/ookla/speedtest-cli/gpgkey | gpg --dearmor \
@@ -26,4 +27,4 @@ COPY . /usr/app/
 # CMD [ "speedtest",  "--accept-license", "--accept-gdpr"]
 
 # Execute python script
-CMD [ "python3",  "speed.py"]
+CMD [ "python3",  "speed_monitor.py"]
