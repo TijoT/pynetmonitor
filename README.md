@@ -34,7 +34,7 @@ Once InfluxDB is configured as the datasource in Grafana, a dashboard should be 
 ![Alt text](images/Grafana.png)
 
 # Acknowledgments
-Inspiration, code snippets
-    https://pimylifeup.com/raspberry-pi-internet-speed-monitor/  
-    https://pimylifeup.com/raspberry-pi-docker/
+Inspiration, code snippets  
+    * https://pimylifeup.com/raspberry-pi-internet-speed-monitor/  
+    * https://pimylifeup.com/raspberry-pi-docker/
 
